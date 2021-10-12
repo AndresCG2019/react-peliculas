@@ -13,7 +13,7 @@ export default function ListadoPeliculas(props: ListadoPeliculasProps ) {
                                     key={pelicula.id}
                 />)}
         </div>
-    </ListadoGenerico>  
+    </ListadoGenerico>   
     );
 }
 interface ListadoPeliculasProps {

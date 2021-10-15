@@ -2,5 +2,6 @@ export interface actorCreacionDTO {
     nombre: string;
     fechaNacimiento?: Date;
     foto?: File;
-    fotoURL?: string
+    fotoURL?: string;
+    biografia?: string;
 }

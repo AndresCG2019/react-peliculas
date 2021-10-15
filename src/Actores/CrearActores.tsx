@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import FormularioActores from "./FormularioActores";
 
 export default function CrearActores() {
     return (
         <>
-            <h3>Crear Actpres</h3>
-            <Link to="actores/crear">aa</Link>
+            <h3>Crear Actores</h3>
+            <FormularioActores
+                modelo={{nombre: '', fechaNacimiento: undefined}}
+                onSubmit={valores => console.log(valores)}/>
         </>
     );
 }

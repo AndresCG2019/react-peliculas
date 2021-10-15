@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ListadoPeliculas from "./Peliculas/ListadoPeliculas";
 import { landingPageDTO } from "./Peliculas/peliculas.model";
-import Button from "./utils/Button";
 
 export default function LandingPage() {
     const [peliculas, setPeliculas] = useState<landingPageDTO>({});

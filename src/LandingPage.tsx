@@ -1,39 +1,43 @@
-import { useEffect, useState } from "react";
-import ListadoPeliculas from "./Peliculas/ListadoPeliculas";
-import { landingPageDTO } from "./Peliculas/peliculas.model";
+import { useState, useEffect } from "react";
+import { landingPageDTO } from './peliculas/peliculas.model'
+import ListadoPeliculas from './peliculas/ListadoPeliculas'
 
 export default function LandingPage() {
-    const [peliculas, setPeliculas] = useState<landingPageDTO>({});
-  
-    useEffect(() => {
-      const timerId = setTimeout(() => {
-        setPeliculas({enCartelera: [
-          {
-            id: 1, titulo: "Spider-man: Far From Home",
-            poster: "https://images-na.ssl-images-amazon.com/images/I/91A+eXyGmvL._RI_.jpg"
-          },
-          {
-            id: 2, titulo : "Moana",
-            poster: "https://pbs.twimg.com/profile_images/819955513718779905/DY4UfMVj_400x400.jpg"
-          }
-        ],
-        proximosEstrenos: [
-          {
-            id: 1, titulo: "Soul",
-            poster: "https://i.blogs.es/69cf8f/cartel-soul/1366_2000.jpeg"
-          },
-        ]
-      });
-      }, 1000);
-      return () => clearTimeout(timerId) })
 
-      return (
+    const [peliculas, setPeliculas] = useState<landingPageDTO>({})
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setPeliculas({
+                enCartelera: [
+                    {
+                        id: 1, titulo: 'Spider-Man: Far from Home',
+                        poster: 'https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                    },
+                    {
+                        id: 2, titulo: 'Moana',
+                        poster: 'https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                    }
+                ],
+                proximosEstrenos: [
+                    {
+                        id: 3, titulo: 'Soul',
+                        poster: 'https://m.media-amazon.com/images/M/MV5BZGE1MDg5M2MtNTkyZS00MTY5LTg1YzUtZTlhZmM1Y2EwNmFmXkEyXkFqcGdeQXVyNjA3OTI0MDc@._V1_UX182_CR0,0,182,268_AL_.jpg'
+                    }
+                ]
+            })
+        }, 500);
+
+        return () => clearTimeout(timerId);
+    })
+
+    return (
         <>
             <h3>En Cartelera</h3>
-            <ListadoPeliculas peliculas={peliculas.enCartelera}></ListadoPeliculas>
+            <ListadoPeliculas peliculas={peliculas.enCartelera} />
 
-            <h3>Proximos Estrenos</h3>
-            <ListadoPeliculas peliculas={peliculas.proximosEstrenos}></ListadoPeliculas>
+            <h3>Próximos Estrenos</h3>
+            <ListadoPeliculas peliculas={peliculas.proximosEstrenos} />
         </>
-      );
+    )
 }

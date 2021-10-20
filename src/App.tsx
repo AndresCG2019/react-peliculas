@@ -1,23 +1,30 @@
-import './App.css';
-import Menu from './utils/Menu';
+import React from 'react';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import rutas from './route-config';
-import configurarValidaciones from './validaciones';
+import './App.css';
+import Menu from './utils/Menu';
+import rutas from './route-config'
+import configurarValidaciones from './validaciones'
+
+configurarValidaciones();
 
 function App() {
-  configurarValidaciones(); 
   return (
     <>
       <BrowserRouter>
-        <Menu/>
+        <Menu />
         <div className="container">
           <Switch>
-            {rutas.map(ruta => <Route key={ruta.path} path={ruta.path} exact ={ruta.exact}><ruta.componente/></Route>)}
+            {rutas.map(ruta => 
+            <Route key={ruta.path} path={ruta.path}
+              exact={ruta.exact}>
+                <ruta.componente />
+              </Route>)}
           </Switch>
         </div>
       </BrowserRouter>
     </>
+
   );
 }
 

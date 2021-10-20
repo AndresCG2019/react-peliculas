@@ -1,4 +1,4 @@
-export interface coordenadasDTO {
+export interface coordenadaDTO{
     lng: number;
     lat: number;
 }

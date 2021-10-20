@@ -1,17 +1,21 @@
-import CrearActores from "./Actores/CrearActores";
-import EditarActores from "./Actores/EditarActores";
-import IndiceActores from "./Actores/IndiceActores";
-import CrearCines from "./cines/CrearCines";
-import EditarCines from "./cines/EditarCines";
-import IndiceCines from "./cines/IndiceCines";
-import CrearGenero from "./generos/CrearGenero";
-import EditarGenero from "./generos/EditarGenero";
-import IndiceGeneros from "./generos/indiceGeneros";
+import IndiceGeneros from "./generos/IndiceGeneros";
 import LandingPage from "./LandingPage";
-import CrearPeliculas from "./Peliculas/CrearPeliculas";
-import EditarPeliculas from "./Peliculas/EditarPeliculas";
-import FiltrosPeliculas from "./Peliculas/FiltroPeliculas";
-import RedireccionarALanding from "./utils/RedireccionarALanding";
+import CrearGenero from "./generos/CrearGenero"
+import EditarGenero from "./generos/EditarGenero"
+
+import CrearActores from './actores/CrearActores';
+import EditarActores from './actores/EditarActores';
+import IndiceActores from './actores/IndiceActores';
+
+import CrearCines from './cines/CrearCines';
+import EditarCines from './cines/EditarCines';
+import IndiceCines from './cines/IndiceCines';
+
+import CrearPeliculas from './peliculas/CrearPeliculas'
+import EditarPeliculas from './peliculas/EditarPeliculas'
+import FiltroPeliculas from './peliculas/FiltroPeliculas'
+
+import RedireccionarALanding from './utils/RedireccionarALanding'
 
 const rutas = [
     {path: '/generos/crear', componente: CrearGenero},
@@ -28,11 +32,10 @@ const rutas = [
 
     {path: '/peliculas/crear', componente: CrearPeliculas},
     {path: '/peliculas/editar/:id(\\d+)', componente: EditarPeliculas},
-    {path: '/peliculas/filtrar', componente: FiltrosPeliculas},
+    {path: '/peliculas/filtrar', componente: FiltroPeliculas},    
 
     {path: '/', componente: LandingPage, exact: true},
-    {path: '*', componente: RedireccionarALanding},
-
-]
+    {path: '*', componente: RedireccionarALanding}
+];
 
 export default rutas;

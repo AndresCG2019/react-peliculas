@@ -1,9 +1,9 @@
-export default function MostrarErrorCampo(props: mostrarErrorCmpoProps) {
+export default function MostrarErrorCampo(props: mostrarErrorCampoProps){
     return (
         <div className="text-danger">{props.mensaje}</div>
-    );
+    )
 }
 
-interface mostrarErrorCmpoProps {
+interface mostrarErrorCampoProps{
     mensaje: string;
 }

@@ -1,16 +1,17 @@
-import FormulariGeneros from "./FormularioGeneros";
+import FormularioGeneros from "./FormularioGeneros";
 
 export default function CrearGenero() {
-
-    return(
+    // const history = useHistory();
+    return (
         <>
-            <h3>crear generos</h3>
+            <h3>Crear Género</h3>
 
-            <FormulariGeneros modelo={{nombre: ''}}
-                onSubmit={async valores => {
-                    await new Promise(r => setTimeout(r,3000))
+            <FormularioGeneros modelo={{nombre: ''}} 
+                 onSubmit={async valores => {
+                    await new Promise(r => setTimeout(r, 3000))
                     console.log(valores);
-            }}/>
+                 }}
+            />
         </>
-    );
+    )
 }

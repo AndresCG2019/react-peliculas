@@ -2,18 +2,19 @@ import { Field, Form, Formik } from "formik";
 import { generoDTO } from "../generos/generos.model";
 import Button from "../utils/Button";
 
-export default function FiltrosPeliculas() {
-    
-    const valorInicial : filtroPeliculasForm = {
-        titulo: "",
+
+export default function FiltroPeliculas() {
+
+    const valorInicial: filtroPeliculasForm = {
+        titulo: '',
         generoId: 0,
         proximosEstrenos: false,
         enCines: false
     }
 
-    const generos : generoDTO[] = [{id: 1, nombre: "Comedia"}, {id: 2, nombre: "Accion"}]
+    const generos: generoDTO[] = [{ id: 1, nombre: 'Acción' }, { id: 2, nombre: 'Comedia' }]
 
-    return(
+    return (
         <>
             <h3>Filtrar Películas</h3>
 
@@ -42,30 +43,31 @@ export default function FiltrosPeliculas() {
                             </div>
                             <div className="form-group mx-sm-3 mb-2">
                                 <Field className="form-check-input" id="proximosEstrenos"
-                                        name="proximosEstrenos" type="checkbox"></Field>
-                                <label htmlFor="proximosEstrenos">Proximos Estrenos</label>
+                                name="proximosEstrenos" type="checkbox" />
+                                <label className="form-check-label"
+                                htmlFor="proximosEstrenos">Próximos Estrenos</label>
                             </div>
                             <div className="form-group mx-sm-3 mb-2">
                                 <Field className="form-check-input" id="enCines"
-                                        name="enCines" type="checkbox"></Field>
-                                <label htmlFor="enCines">En Cines</label>
+                                name="enCines" type="checkbox" />
+                                <label className="form-check-label"
+                                htmlFor="enCines">En Cines</label>
                             </div>
                             <Button
                             className="btn btn-primary mb-2 mx-sm-3"
-                            onClick={() => formikProps.submitForm()}>
-                                Filtrar
-                            </Button>
+                             onClick={() => formikProps.submitForm()}
+                            >Filtrar</Button>
                             <Button
-                            className="btn btn-danger mb-2"
-                            onClick={() => formikProps.setValues(valorInicial)}>
-                                Limpiar
-                            </Button>
+                                className="btn btn-danger mb-2"
+                                onClick={() => formikProps.setValues(valorInicial)}
+                            >Limpiar</Button>
                         </div>
                     </Form>
                 )}
             </Formik>
         </>
-    );
+
+    )
 }
 
 interface filtroPeliculasForm {

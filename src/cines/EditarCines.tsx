@@ -1,12 +1,13 @@
-import FormularioCines from "./FormularioCines";
-
+import FormularioCines from './FormularioCines'
 export default function EditarCines() {
-    return(
-        <>
-            <h3>editar cines</h3>
-            <FormularioCines modelo={{nombre: "Cinemex", latitud: 24.019744750932905, longitud: -104.6455521583721}} 
-            onSubmit={valores => console.log(valores)}
-            ></FormularioCines>
+    return (
+        <>, 
+            <h3>Editar cine</h3>
+            <FormularioCines
+                modelo={{nombre: 'Sambil', latitud: 18.471210, longitud: -69.933270}}
+                onSubmit={valores => console.log(valores)}
+            />
         </>
-    );
+
+    )
 }

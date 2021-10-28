@@ -17,22 +17,30 @@ function App() {
     setClaims(claims);
   }
 
+  function esAdmin(){
+    return claims.findIndex(claim => claim.nombre === "role" && claim.valor === "admin") > -1;
+  }
+
   return (
     <>
       <BrowserRouter>
-        <AutenticacionContext.Provider value={{claims, actualizar}}>
+
+        <AutenticacionContext.Provider value={{ claims, actualizar }}>
           <Menu />
-            <div className="container">
-              <Switch>
-                {rutas.map(ruta => 
+          <div className="container">
+            <Switch>
+              {rutas.map(ruta =>
                 <Route key={ruta.path} path={ruta.path}
                   exact={ruta.exact}>
-                    <ruta.componente />
-                  </Route>)}
-              </Switch>
-            </div>
-        </AutenticacionContext.Provider>    
-      </BrowserRouter> 
+                  {ruta.esAdmin && !esAdmin() ? <>
+                    No tiene permiso para acceder a este componente
+                    </> : <ruta.componente />}
+                </Route>)}
+            </Switch>
+          </div>
+        </AutenticacionContext.Provider>
+
+      </BrowserRouter>
     </>
   );
 }

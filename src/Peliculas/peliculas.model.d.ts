@@ -38,3 +38,12 @@ export interface peliculasPostGetDTO {
     generos: generoDTO[];
     cines: cineDTO[];
 }
+
+export interface peliculasPutGetDTO {
+    pelicula: peliculaDTO;
+    generosSeleccionados: generoDTO[];
+    generosNoSeleccionados: generoDTO[];
+    cinesSeleccionados: cineDTO[];
+    cinesNoSeleccionados: cineDTO[];
+    actores: actorPeliculaDTO[];
+}

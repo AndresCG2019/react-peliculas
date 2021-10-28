@@ -3,25 +3,32 @@ import { landingPageDTO } from './peliculas/peliculas.model'
 import ListadoPeliculas from './peliculas/ListadoPeliculas'
 import axios, { AxiosResponse } from "axios";
 import { urlPeliculas } from "./utils/endpoints";
+import alertaContext from "./utils/AlertaContext";
 
 export default function LandingPage() {
 
     const [peliculas, setPeliculas] = useState<landingPageDTO>({})
 
     useEffect(() => {
-       axios.get(urlPeliculas)
+       cargarDatos();
+    }, [])
+
+    function cargarDatos(){
+        axios.get(urlPeliculas)
        .then((respuesta: AxiosResponse<landingPageDTO>) => {
         setPeliculas(respuesta.data);
        })
-    }, [])
+    }
 
     return (
         <>
-            <h3>En Cartelera</h3>
-            <ListadoPeliculas peliculas={peliculas.enCines} />
+            <alertaContext.Provider value={() => cargarDatos()}>
+                <h3>En Cartelera</h3>
+                <ListadoPeliculas peliculas={peliculas.enCines} />
 
-            <h3>Próximos Estrenos</h3>
-            <ListadoPeliculas peliculas={peliculas.proximosEstrenos} />
+                <h3>Próximos Estrenos</h3>
+                <ListadoPeliculas peliculas={peliculas.proximosEstrenos} />
+            </alertaContext.Provider>
         </>
     )
 }

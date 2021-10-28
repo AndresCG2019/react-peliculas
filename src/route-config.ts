@@ -16,6 +16,7 @@ import EditarPeliculas from './peliculas/EditarPeliculas'
 import FiltroPeliculas from './peliculas/FiltroPeliculas'
 
 import RedireccionarALanding from './utils/RedireccionarALanding'
+import DetallePelicula from "./peliculas/DetallePelicula";
 
 const rutas = [
     {path: '/generos/crear', componente: CrearGenero},
@@ -30,6 +31,7 @@ const rutas = [
     {path: '/cines/editar/:id(\\d+)', componente: EditarCines},
     {path: '/cines', componente: IndiceCines, exact: true},
 
+    {path: '/pelicula/:id(\\d+)', componente: DetallePelicula},
     {path: '/peliculas/crear', componente: CrearPeliculas},
     {path: '/peliculas/editar/:id(\\d+)', componente: EditarPeliculas},
     {path: '/peliculas/filtrar', componente: FiltroPeliculas},    

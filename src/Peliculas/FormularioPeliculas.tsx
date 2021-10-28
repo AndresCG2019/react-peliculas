@@ -13,6 +13,7 @@ import Button from "../utils/Button";
 import { Link } from "react-router-dom";
 import { generoDTO } from "../generos/generos.model";
 import { cineDTO } from "../cines/cines.model";
+import FormGroupMarkdown from "../utils/FormGroupMarkdown";
 
 
 export default function FormularioPeliculas(props: formularioPeliculasProps) {
@@ -56,6 +57,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                     <FormGroupFecha campo="fechaLanzamiento" label="Fecha Lanzamiento" />
                     <FormGroupImagen campo="poster" label="Poster"
                         imagenURL={props.modelo.posterURL} />
+                    <FormGroupMarkdown campo="resumen" label="Resumen"/>
 
                     <div className="form-group">
                         <label>Géneros:</label>

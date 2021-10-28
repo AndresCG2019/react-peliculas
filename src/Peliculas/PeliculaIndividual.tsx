@@ -7,6 +7,7 @@ import { urlPeliculas } from "../utils/endpoints";
 import { useContext } from "react";
 import AlertaContext from "../utils/AlertaContext";
 import confirmar from "../utils/Confirmar";
+import Autorizado from "../auth/Autorizado";
 
 export default function PeliculaIndividual(props: peliculaIndividualProps){
 
@@ -28,11 +29,17 @@ export default function PeliculaIndividual(props: peliculaIndividualProps){
             <p>
                 <a href={construirLink()}>{props.pelicula.titulo}</a>
             </p>
-            <div>
-                <Link style={{marginRight: '1rem'}} className="btn btn-info"
-                    to={`/peliculas/editar/${props.pelicula.id}`}>Editar</Link>
-                <Button className="btn btn-danger" onClick={() => confirmar(() => borrarPelicula())} >Borrar</Button>
-            </div>
+            <Autorizado role="admin"
+                autorizado={
+                    <>
+                        <div>
+                            <Link style={{marginRight: '1rem'}} className="btn btn-info"
+                                to={`/peliculas/editar/${props.pelicula.id}`}>Editar</Link>
+                            <Button className="btn btn-danger" onClick={() => confirmar(() => borrarPelicula())} >Borrar</Button>
+                        </div>
+                    </>
+                }
+            />
         </div>
     )
 }

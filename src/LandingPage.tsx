@@ -23,7 +23,7 @@ export default function LandingPage() {
 
     return (
         <>
-            <Autorizado autorizado={<>estas autorizdo</>} noAutorizado={<>no estas autorizado</>}></Autorizado>
+            <Autorizado autorizado={<>estas autorizdo</>} noAutorizado={<>no estas autorizado</>} role="admin" ></Autorizado>
 
             <alertaContext.Provider value={() => cargarDatos()}>
                 <h3>En Cartelera</h3>

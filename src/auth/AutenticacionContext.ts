@@ -3,7 +3,7 @@ import { claim } from './auth.model';
 
 const AutenticacionContext = React.createContext<{
     claims: claim[];
-    actualizar (claims: []) : void
+    actualizar (claims: claim[]) : void
 }>({claims: [], actualizar: () => {}});
 
 export default AutenticacionContext;

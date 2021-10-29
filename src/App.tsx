@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -7,11 +7,16 @@ import rutas from './route-config'
 import configurarValidaciones from './validaciones'
 import { claim } from './auth/auth.model';
 import AutenticacionContext from './auth/AutenticacionContext';
+import { obtenerClaims } from './auth/ManejadorJWT';
 
 configurarValidaciones();
 
 function App() {
   const [claims, setClaims] = useState<claim[]>([]);
+
+  useEffect(() => {
+    setClaims(obtenerClaims());
+  }, [])
 
   function actualizar(claims: claim[]){
     setClaims(claims);

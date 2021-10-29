@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import Cargando from "../utils/Cargando";
-import { urlPeliculas } from "../utils/endpoints";
+import { urlPeliculas, urlRatings } from "../utils/endpoints";
+import Rating from "../utils/Rating";
 import { peliculaDTO } from "./peliculas.model";
 
 export default function DetallePelicula(){
@@ -34,6 +36,11 @@ export default function DetallePelicula(){
         return `https://www.youtube.com/embed/${video_id}`
     }
 
+    async function onVote(voto: number) {
+        await axios.post(urlRatings, {puntuacion: voto, peliculaId: id});
+        Swal.fire({icon: 'success', title: 'Voto Recibido'});
+    }
+
     return (
         pelicula ?
         <div style={{display: 'flex'}}>
@@ -45,6 +52,7 @@ export default function DetallePelicula(){
                         {genero.nombre}
                     </Link>)}
                     | {pelicula.fechaLanzamiento.toDateString()}
+                    | tu voto: <Rating maximoValor={5} valorSeleccionado={0} onChange={onVote}></Rating>
 
                     <div style={{ display: 'flex', marginTop: '1rem' }}>
                         <span style={{ display: 'inline-block', marginRight: '1rem' }}>

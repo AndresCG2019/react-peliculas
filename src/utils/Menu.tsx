@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Autorizado from "../auth/Autorizado";
 
 export default function Menu() {
@@ -65,6 +65,17 @@ export default function Menu() {
               }
             />
           </ul>
+          <div className="collapse navbar-collapse" style={{display: "flex", justifyContent: "space-between"}}>
+            <Autorizado
+              autorizado={<></>}
+              noAutorizado={
+                <>
+                  <Link to="/registro" className="nav-link btn btn-link">Registro</Link>
+                  <Link to="/login" className="nav-link btn btn-link">Login</Link>
+                </>
+              }
+            />
+          </div>
         </div>
       </div>
     </nav>

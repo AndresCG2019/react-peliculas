@@ -11,7 +11,7 @@ import AutenticacionContext from './auth/AutenticacionContext';
 configurarValidaciones();
 
 function App() {
-  const [claims, setClaims] = useState<claim[]>([{nombre: "email", valor : "yo@yopmail.com"}]);
+  const [claims, setClaims] = useState<claim[]>([]);
 
   function actualizar(claims: claim[]){
     setClaims(claims);

@@ -4,3 +4,4 @@ export const urlGeneros = `https://localhost:44314/api/generos`;
 export const urlActores = `https://localhost:44314/api/actores`;
 export const urlCines = `https://localhost:44314/api/cines`;
 export const urlPeliculas = `https://localhost:44314/api/peliculas`;
+export const urlCuentas = `https://localhost:44314/api/cuentas`;
